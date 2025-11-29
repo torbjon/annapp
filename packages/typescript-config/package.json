@@ -1,0 +1,12 @@
+{
+  "name": "@annaapp/typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "base.json",
+    "nextjs.json"
+  ],
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

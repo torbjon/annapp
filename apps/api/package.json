@@ -1,0 +1,26 @@
+{
+  "name": "@annaapp/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsup src/index.ts --format esm --dts",
+    "start": "node dist/index.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "googleapis": "^166.0.0",
+    "hono": "^4.6.10"
+  },
+  "devDependencies": {
+    "@annaapp/eslint-config": "workspace:*",
+    "@annaapp/typescript-config": "workspace:*",
+    "@types/node": "^22.9.0",
+    "eslint": "^9.14.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
