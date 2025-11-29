@@ -4,12 +4,11 @@ import { useState } from "react";
 import { HealthForm } from "@/components/health-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-interface ResponseData {
-  tip: string;
-}
-
-export default function Home(): JSX.Element {
-  const [responseData, setResponseData] = useState<ResponseData | null>(null);
+export default function Home(): React.JSX.Element {
+  const [responseData, setResponseData] = useState<Record<
+    string,
+    unknown
+  > | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleFormSubmit = async (values: {
@@ -88,13 +87,16 @@ export default function Home(): JSX.Element {
                 {responseData ? (
                   <div className="space-y-4">
                     {Object.entries(responseData).map(([key, value]) => (
-                      <div key={key} className="rounded-lg border p-4">
-                        <h3 className="text-muted-foreground mb-2 text-sm font-medium capitalize">
-                          {key.replace(/_/g, " ")}
-                        </h3>
-                        <p className="text-2xl font-semibold">
-                          {String(value)}
-                        </p>
+                      <div key={key}>
+                        {typeof value === "object" && value !== null ? (
+                          <pre className="bg-muted overflow-auto rounded-md p-4 text-sm">
+                            <code>{JSON.stringify(value, null, 2)}</code>
+                          </pre>
+                        ) : (
+                          <p className="text-2xl font-semibold">
+                            {String(value)}
+                          </p>
+                        )}
                       </div>
                     ))}
                   </div>

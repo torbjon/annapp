@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import { GoogleSheetsService } from "./services/google-sheets";
+import { matcher } from "./parser/index";
 import fs from "fs";
 import path from "path";
 
@@ -28,15 +29,7 @@ app.get("/health", (c) => {
 app.post("/proba", async (c) => {
   const body = await c.req.json();
 
-  return c.json({
-    request: body,
-    message: "test",
-  });
-});
-
-app.get("/test", async (c) => {
   try {
-    // Load service account credentials
     const credentialsPath = path.join(
       process.cwd(),
       "secrets",
@@ -44,7 +37,6 @@ app.get("/test", async (c) => {
     );
     const credentials = JSON.parse(fs.readFileSync(credentialsPath, "utf-8"));
 
-    // Initialize Google Sheets service
     const sheetsService = new GoogleSheetsService({
       spreadsheetId: "1D6zGarXeyf7HA0Rp2lblFy-nJWyaaMD3cFisbVWMhUE",
       credentials: {
@@ -53,14 +45,23 @@ app.get("/test", async (c) => {
       },
     });
 
-    // Read first column, first row (A1)
-    const result = await sheetsService.readRange("A1");
+    const source = await sheetsService.readRange("Rules for MVP test!A1:ZZ");
+
+    if (!source) {
+      return c.json(
+        {
+          success: false,
+          error: "No data found in the specified range",
+        },
+        404
+      );
+    }
+
+    const data = matcher(source, body);
 
     return c.json({
-      success: true,
-      cell: "A1",
-      value: result?.[0]?.[0] || null,
-      rawData: result,
+      request: body,
+      data,
     });
   } catch (error) {
     console.error("Error reading from Google Sheets:", error);

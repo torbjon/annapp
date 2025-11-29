@@ -7,20 +7,26 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsup src/index.ts --format esm --dts",
     "start": "node dist/index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "pm2:start": "pm2 start ecosystem.config.cjs --env production",
+    "pm2:stop": "pm2 stop annaapp-api",
+    "pm2:restart": "pm2 restart annaapp-api",
+    "pm2:reload": "pm2 reload annaapp-api",
+    "pm2:logs": "pm2 logs annaapp-api",
+    "pm2:status": "pm2 status"
   },
   "dependencies": {
-    "@hono/node-server": "^1.13.7",
+    "@hono/node-server": "^1.19.6",
     "googleapis": "^166.0.0",
-    "hono": "^4.6.10"
+    "hono": "^4.10.7"
   },
   "devDependencies": {
     "@annaapp/eslint-config": "workspace:*",
     "@annaapp/typescript-config": "workspace:*",
-    "@types/node": "^22.9.0",
-    "eslint": "^9.14.0",
-    "tsup": "^8.3.5",
-    "tsx": "^4.19.2",
-    "typescript": "^5.6.3"
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "tsup": "^8.5.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   }
 }

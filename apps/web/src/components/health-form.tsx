@@ -37,7 +37,7 @@ const formSchema = z.object({
       message: "Age must be 120 or less",
     }),
   lastPeriod: z.date({
-    required_error: "Please select the date of your last period",
+    error: "Please select the date of your last period",
   }),
   sleep_total_mins_last_28_days: z
     .number()
