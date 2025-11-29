@@ -1,0 +1,102 @@
+[
+  {
+    "rule_id": "R1001",
+    "symptom": "cardio_load",
+    "condition": {
+      "metric": "hr_mean",
+      "window": "last_24h",
+      "operator": ">",
+      "sd_offset": 1.0,
+      "data_confidence_operator": ">=",
+      "data_confidence_threshold": 70
+    },
+    "unless": ["Recent intense workout", "Fever or illness", "Dehydration"],
+    "then": "Drink more water and take a light recovery walk today.",
+    "because": "Elevated average heart rate can indicate dehydration, stress, or insufficient recovery.",
+    "reference": "Lancet empowerment model, 2024",
+    "source": "Derived from Apple Watch heart rate trends",
+    "evidence_tier": "B",
+    "window_params": {
+      "baseline_days": 7,
+      "trend_days": 3,
+      "event": "last_24h",
+      "cooldown_days": 1
+    },
+    "priority": 90
+  },
+  {
+    "rule_id": "R1002",
+    "symptom": "low_activity",
+    "condition": {
+      "metric": "effort_total",
+      "window": "last_24h",
+      "operator": "<",
+      "sd_offset": -1.0,
+      "data_confidence_operator": ">=",
+      "data_confidence_threshold": 70
+    },
+    "unless": ["Injury or rest day", "Illness or fatigue"],
+    "then": "Stand and stretch for one minute each hour or go for a short walk.",
+    "because": "Low daily activity can lower energy and sleep quality.",
+    "reference": "ALSWH submission, 2024",
+    "source": "Apple Watch activity rings",
+    "evidence_tier": "B",
+    "window_params": {
+      "baseline_days": 7,
+      "trend_days": 3,
+      "event": "last_24h",
+      "cooldown_days": 1
+    },
+    "priority": 80
+  },
+  {
+    "rule_id": "R1003",
+    "symptom": "sleep_deficit",
+    "condition": {
+      "metric": "sleep_hours",
+      "window": "last_night",
+      "operator": "<",
+      "sd_offset": -1.0,
+      "data_confidence_operator": ">=",
+      "data_confidence_threshold": 70
+    },
+    "unless": ["Shift work or travel", "Device off-wrist", "Illness or pain"],
+    "then": "Try going to bed 30 minutes earlier tonight.",
+    "because": "Short sleep can increase stress and raise resting heart rate the next day.",
+    "reference": "Lancet empowerment model, 2024",
+    "source": "Apple Watch sleep analysis",
+    "evidence_tier": "B",
+    "window_params": {
+      "baseline_days": 14,
+      "trend_days": 3,
+      "event": "last_night",
+      "cooldown_days": 2
+    },
+    "priority": 85
+  },
+  {
+    "rule_id": "R1004",
+    "symptom": "metabolic_energy",
+    "condition": {
+      "metric": "basal_energy_total",
+      "window": "last_24h",
+      "operator": ">",
+      "sd_offset": 1.0,
+      "data_confidence_operator": ">=",
+      "data_confidence_threshold": 70
+    },
+    "unless": ["Unusual heat exposure", "Fever or illness"],
+    "then": "Ensure adequate hydration and balanced meals.",
+    "because": "Higher basal energy expenditure may reflect stress, recovery demands, or temperature effects.",
+    "reference": "Lancet metabolic review, 2023",
+    "source": "Apple Watch basal energy trend",
+    "evidence_tier": "B",
+    "window_params": {
+      "baseline_days": 14,
+      "trend_days": 3,
+      "event": "last_24h",
+      "cooldown_days": 1
+    },
+    "priority": 70
+  }
+]

@@ -8,11 +8,12 @@
     "dev:api": "turbo run dev --filter=@annaapp/api",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,mjs,json,md}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,json,md}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,json,md}\"",
+    "deploy": "./deploy.sh"
   },
   "devDependencies": {
     "prettier": "^3.7.2",
-    "prettier-plugin-tailwindcss": "^0.6.8",
+    "prettier-plugin-tailwindcss": "^0.7.1",
     "turbo": "^2.6.1"
   },
   "packageManager": "pnpm@10.24.0",

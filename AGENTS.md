@@ -33,7 +33,6 @@
 
 ## Review
 
-- **MANDATORY:** Always read and follow `@skills/review.md`. Act as the Principal Software Engineer described in that file.
 - Security: No hardcoded secrets, proper input validation, safe dependency usage
 - Performance: No unnecessary loops, efficient data structures, avoid memory leaks
 - Simplicity: Code is readable, minimal complexity, no premature optimization
@@ -42,9 +41,3 @@
 
 - Title format: `[<project_name>] <Title>`
 - Run `pnpm lint` and `pnpm test` before committing
-
-## Helm
-
-- Preserve existing indentation and formatting
-- Only modify lines needed for the change
-- test

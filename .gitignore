@@ -1,3 +1,7 @@
+#Ignore wearable data
+wearable_data/
+
+
 apps/api/secrets
 
 # Dependencies
