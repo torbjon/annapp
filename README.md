@@ -2,6 +2,13 @@
 
 Health & wellness app for women in perimenopause.
 
+## Screenshots
+
+<p align="center">
+  <img src="assets/mob.png" width="300" alt="Mobile App" />
+  <img src="assets/calculator.png" width="300" alt="Calculator" />
+</p>
+
 ## Setup
 
 ```bash
