@@ -5,7 +5,7 @@ Health & wellness app for women in perimenopause.
 ## Screenshots
 
 <p align="center">
-  <img src="assets/screenhot.png" width="300" alt="apps" />
+  <img src="assets/screenshot.png" width="300" alt="apps" />
 </p>
 
 ## Setup
