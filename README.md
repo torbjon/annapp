@@ -5,8 +5,7 @@ Health & wellness app for women in perimenopause.
 ## Screenshots
 
 <p align="center">
-  <img src="assets/mob.png" width="300" alt="Mobile App" />
-  <img src="assets/calculator.png" width="300" alt="Calculator" />
+  <img src="assets/screenhot.png" width="300" alt="apps" />
 </p>
 
 ## Setup
